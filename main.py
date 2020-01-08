@@ -1,11 +1,11 @@
 # Python libraries that we need to import for our bot
 from flask import Flask, request
 from pymessenger.bot import Bot
-from bot_funcions import news
-from bot_funcions import learn
-from bot_funcions import chatbot
+from bot_function import news
+from bot_function import learn
+from bot_function import chatbot
 
-ACCESS_TOKEN = 'EAAJPFDMf0QoBAMi6VXfpDKRZBZAdfgQXDXFKpM40U0YAdUV07PZCVKi67p7Kwu7UZAaZAvtUN8H5hbUuRs7Y0rAU3Oh9Hz4lsZBf2L3aXvMmzHEM531w0vLUY9Iy2AEZAQ3j4Cox7EKjNjwVKa1szLaVXSq03Y2FQWe1WuoDBBxOwZDZD'
+ACCESS_TOKEN = 'EAAIH0i5v3AgBALoNsinZAZBmm9QgatcevN4rkv67lDgX91Vvylqom448vaxrDWPlQlkunhYaGNShp1evSPB7nOo2BRzGUDWhZCTJVbBOzwEiM5LAX4Hzyx4uly2uVtUkR7WB0T3wN1bT1g0cC1CsELj8bSQ0K9n126EJpcjYsl5htYse4Wv'
 VERIFY_TOKEN = 'VERIFY_TOKEN'
 bot = Bot(ACCESS_TOKEN)
 

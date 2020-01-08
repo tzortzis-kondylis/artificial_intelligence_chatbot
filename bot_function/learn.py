@@ -1,18 +1,29 @@
-import random
 import nltk
 import json
 import numpy
 import tensorflow
 import tflearn
-import random
 import pickle
+import shutil
+import os
+import time
+
 from nltk.stem.lancaster import LancasterStemmer
+
 stemmer = LancasterStemmer()
 
 
 def machine():
-    with open(r"C:\Users\TZORTZIS\PycharmProjects\newsbot\bot_funcions\intents.json") as file:
+    # Delete previous data (remove entire folder) if exists
+    if os.path.exists('bot_data'):
+        shutil.rmtree('bot_data')
+    time.sleep(1)
+
+    # Create folder for the data
+    os.mkdir('bot_data')
+    with open("bot_function/intents.json") as file:
         data = json.load(file)
+
     words = []
     labels = []
     docs_x = []
@@ -55,7 +66,7 @@ def machine():
     training = numpy.array(training)
     output = numpy.array(output)
 
-    with open(r"C:\Users\TZORTZIS\PycharmProjects\newsbot\bot_data\data.pickle", "wb") as f:
+    with open("bot_data/data.pickle", "wb") as f:
         pickle.dump((words, labels, training, output), f)
 
     tensorflow.reset_default_graph()
@@ -68,18 +79,6 @@ def machine():
 
     model = tflearn.DNN(net)
     model.fit(training, output, n_epoch=1000, batch_size=8, show_metric=True)
-    model.save(r"C:\Users\TZORTZIS\PycharmProjects\newsbot\bot_data\model.tflearn")
-
-    def bag_of_words(s, words):
-        bag = [0 for _ in range(len(words))]
-        s_words = nltk.word_tokenize(s)
-        s_words = [stemmer.stem(word.lower()) for word in s_words]
-
-        for se in s_words:
-            for i, w in enumerate(words):
-                if w == se:
-                    bag[i] = (1)
-
-        return numpy.array(bag)
+    model.save("bot_data/model.tflearn")
 
     return "Okay"
