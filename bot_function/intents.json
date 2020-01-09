@@ -1,12 +1,12 @@
 {"intents": [
         {"tag": "greeting",
          "patterns": ["Hi", "How are you", "Is anyone there?", "Hello", "Good day", "Whats up"],
-         "responses": ["Hello, how can I help?", "Good to see you again!\nHow can I help?", "Hi there, how can I help?"],
+         "responses": ["Hello, how can I help? :)", "Good to see you again!\nHow can I help? :)", "Hi there, how can I help? :)"],
          "context_set": ""
         },
         {"tag": "goodbye",
          "patterns": ["cya", "See you later", "Goodbye", "I am Leaving", "Have a Good day"],
-         "responses": ["Sad to see you go :(", "Talk to you later", "Goodbye!"],
+         "responses": ["Sad to see you go :(", "Talk to you later ;)", "Goodbye! :D"],
          "context_set": ""
         },
         {"tag": "age",
@@ -16,7 +16,7 @@
         },
         {"tag": "name",
          "patterns": ["what is your name", "what should I call you", "whats your name?"],
-         "responses": ["You can call me NewsBot.", "My name is NewsBot!", "I'm NewsBot aka a bot for news."],
+         "responses": ["You can call me NewsBot.", "My name is NewsBot!", "I'm NewsBot aka a bot for news. ;)"],
          "context_set": ""
         },
 
@@ -39,42 +39,19 @@
         },
 
         {"tag": "technology",
-         "patterns": ["technology", "technology news", "latest technology news"],
+         "patterns": ["technology", "technology news", "latest technology news", "tech news"],
          "responses": ["technology"],
          "context_set": ""
         },
 
         {"tag": "news",
-         "patterns": ["tell me the news", "news", "latest news", "world news", "today's news", "What the news?"],
-         "responses": [{
-                          "text": "Select Category",
-                          "quick_replies": [{
-                              "content_type": "text",
-                              "title": "Sports",
-                              "image_url":"https://www.freeiconspng.com/uploads/baseball-ball-icon--sport-iconset--icons-land-25.png",
-                              "payload": "sports"
-                          },
-                              {
-                                  "content_type": "text",
-                                  "title": "Entertainment",
-                                  "image_url":"http://www.myiconfinder.com/uploads/iconsets/256-256-c4d10995b44ddf1264603751227e97cb-entertainment.png",
-                                  "payload": "entertainment"
-                              },
-                              {
-                                  "content_type": "text",
-                                  "title": "Science",
-                                  "image_url":"https://webstockreview.net/images600_/experiment-clipart-science-equipment-1.png",
-                                  "payload": "science"
-                              },
-                              {
-                                  "content_type": "text",
-                                  "title": "Technology",
-                                  "image_url":"https://inexinc.com/wp-content/uploads/2019/10/blog-2019-10-15-001-1024x683.jpg",
-                                  "payload": "technology"
-                              }
-
-                          ]
-                      }],
+         "patterns": ["tell me the news", "news", "latest news", "world news", "today's news", "What the news?", "want latest news", "learn the news"],
+         "responses": ["news"],
+         "context_set": ""
+        },
+        {"tag": "thanks",
+         "patterns": ["thanks", "thank you"],
+         "responses": ["I know you'd do the same for me. ;)", "It's my pleasure.", "No problem. :D", "You are welcome! :D"],
          "context_set": ""
         }
    ]

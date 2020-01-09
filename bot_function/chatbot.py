@@ -6,6 +6,7 @@ import tflearn
 import random
 import pickle
 from nltk.stem.lancaster import LancasterStemmer
+
 stemmer = LancasterStemmer()
 
 
@@ -14,7 +15,7 @@ def chat(var):
         data = json.load(file)
 
     with open("bot_data/data.pickle", "rb") as f:
-            words, labels, training, output = pickle.load(f)
+        words, labels, training, output = pickle.load(f)
 
     tensorflow.reset_default_graph()
 
@@ -50,4 +51,3 @@ def chat(var):
         return random.choice(responses)
     else:
         return "I didn't get that.. Try again!"
-

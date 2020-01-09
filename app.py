@@ -4,13 +4,12 @@ from pymessenger.bot import Bot
 from bot_function import news
 from bot_function import learn
 from bot_function import chatbot
-
-ACCESS_TOKEN = 'EAAIH0i5v3AgBALoNsinZAZBmm9QgatcevN4rkv67lDgX91Vvylqom448vaxrDWPlQlkunhYaGNShp1evSPB7nOo2BRzGUDWhZCTJVbBOzwEiM5LAX4Hzyx4uly2uVtUkR7WB0T3wN1bT1g0cC1CsELj8bSQ0K9n126EJpcjYsl5htYse4Wv'
-VERIFY_TOKEN = 'VERIFY_TOKEN'
-bot = Bot(ACCESS_TOKEN)
-
 learn.machine()
 app = Flask(__name__)
+
+ACCESS_TOKEN = 'ACCESS_TOKEN'
+VERIFY_TOKEN = 'VERIFY_TOKEN'
+bot = Bot(ACCESS_TOKEN)
 
 
 # We will receive messages that Facebook sends our bot at this endpoint
@@ -52,6 +51,7 @@ def verify_fb_token(token_sent):
 
 # uses PyMessenger to send response to user
 def send_message(recipient_id, response):
+    print(response)
     # sends user the text message provided via input response parameter
     action = {
         "recipient": {
@@ -61,10 +61,12 @@ def send_message(recipient_id, response):
     }
     bot.send_raw(action)
     if response in ['technology', 'sports', 'science', 'entertainment']:
-        news.news_bot(response, recipient_id)
+        news.news_bot(response, recipient_id, bot)
         bot.send_text_message(recipient_id, 'Anything else?')
+    elif response in ['news']:
+        message = news.news_select()
+        bot.send_message(recipient_id, message)
     else:
-        bot.send_message(recipient_id, response)
         bot.send_text_message(recipient_id, response)
 
     return "success"
