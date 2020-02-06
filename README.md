@@ -1,7 +1,7 @@
 # Facebook NewsBot Instructions<br>
 
 <b>Requirements</b> <br>
-- [Pycharm](https://www.jetbrains.com/pycharm/download/#section=linux) <br>
+- [Pycharm](https://www.jetbrains.com/pycharm/download) <br>
 - [Python (only 3.7.x versions)](https://www.python.org/downloads/) <br>
 
 <b>Then follow</b> [this tutorial](https://www.twilio.com/blog/2017/12/facebook-messenger-bot-python.html) <br>
