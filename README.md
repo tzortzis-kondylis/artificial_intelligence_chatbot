@@ -1,4 +1,4 @@
-# artificial_intelligence_chatbot <br>
+# Facebook NewsBot Instructions<br>
 
 <b>Requirements</b> <br>
 - [Pycharm](https://www.jetbrains.com/pycharm/download/#section=linux) <br>
